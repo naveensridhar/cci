@@ -1,3 +1,4 @@
+# First find the rows and columns which has zeros. Go through the matrix and set those zeros
 def set_matrix_zero(input):
     row = []
     col = []
