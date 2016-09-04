@@ -1,4 +1,4 @@
-# Find the tail. Move the numbers greater than key to tail until everything is done
+# Create two link and move the lesser no. to the left link adn greater one to th eright link
 class Link:
 
     def __init__(self, id, next=None):
