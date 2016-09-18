@@ -51,22 +51,19 @@ class LinkedList:
             current = current.next
                  
     def removeDuplicatesWithoutBuffer(self):
-        # Not working
         current = self.first
-        check = current
-        prev = current
-        
-        while(current != None and current.next != None):
-            check = current.next
-            prev = current
-            while(check != None):
-                if current.id == check.id:
-                    print "test"
-                    prev.next = check.next
-                prev = check
-                check = check.next
+        while(current != None):
+            runner = current
+            while(runner.next != None):
+                if runner.next.id == current.id:
+                    runner.next = runner.next.next
+                else:
+                    runner = runner.next
+
             current = current.next
- 
+       
+
+         
 new = LinkedList()
 new.insert(30)
 new.insert(30)
@@ -78,6 +75,6 @@ new.displayList()
 new.delete(20)
 print "----------------"
 new.displayList()
-new.removeDuplicatesWithBuffer()
+new.removeDuplicatesWithoutBuffer()
 print "----------------"
 new.displayList()

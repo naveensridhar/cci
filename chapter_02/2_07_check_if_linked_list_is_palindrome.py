@@ -16,26 +16,22 @@ class LinkedList:
         slow_runner = self.first
         fast_runner = self.first
         
+        stack = []
+       
         while(fast_runner != None and fast_runner.next != None):
+            stack.append(slow_runner.id)
             slow_runner = slow_runner.next
             fast_runner = fast_runner.next.next
+        
+        if fast_runner != None:
+            slow_runner = slow_runner.next
 
-        second_head = slow_runner
-        slow_runner = None
+        while( slow_runner != None):
+            if slow_runner.id != stack.pop():
+                return False
+            slow_runner = slow_runner.next
 
-        prev = second_head
-        current = prev.next
-
-        while(current != None and current.next != None):
-            next = current.next
-            current.next = prev
-            prev = current
-            current = next
-
-        test = second_head
-        while (test != None):
-            print test.id
-            test = test.next
+        return True
 
         
     def display(self):
@@ -52,7 +48,9 @@ a.insert("a")
 a.insert("a")
 a.insert("d")
 a.insert("a")
+a.insert("a")
+
 a.display()
 
 
-a.check_palindrome()
+print a.check_palindrome()
